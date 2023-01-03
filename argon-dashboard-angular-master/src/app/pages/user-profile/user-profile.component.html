@@ -65,7 +65,7 @@
           </div>
         </div>
         <div class="card-body">
-          <form>
+          <form [formGroup]="registerForm" (ngSubmit)="loginUser()">
             <h6 class="heading-small text-muted mb-4">Mes informations</h6>
             <div class="pl-md-4">
               
