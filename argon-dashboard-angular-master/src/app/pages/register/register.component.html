@@ -7,17 +7,17 @@
   </div>
 </div>
 <!-- Page content -->
-<div class="container mt--8 pb-5">
+<div class="container mt--8 pb-5 w-100">
   <!-- Table -->
   <div class="row justify-content-center">
-    <div class="col-lg-6 col-md-8">
+    <div class="col-lg-8 col-md-12">
       <div class="card bg-secondary shadow border-0">
-        <div class="card-body px-lg-5 py-lg-5">
+        <div class="card-body">
           <div class="text-center text-muted mb-4">
-            <strong>Inscription</strong>
+            <h1 class="text-center">Inscription</h1>
           </div>
-          <form role="form" [formGroup]="signupForm" (ngSubmit)="registerUser()">
-            <div class="form-group">
+          <form role="form" class="row g-3 my-5" [formGroup]="signupForm" (ngSubmit)="registerUser()">
+            <div class="form-group col-md-6">
               <label for="prenom">Prénom</label>
               <div [ngClass]="{'invalid':submitted && signupForm.controls['prenom'].errors}" class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
@@ -36,13 +36,13 @@
                 </div>
             </div>
 
-            <div class="form-group">
-              <label for="prenom">prenom</label>
+            <div class="form-group col-md-6">
+              <label for="prenom">Nom</label>
               <div [ngClass]="{'invalid':submitted && signupForm.controls['nom'].errors}" class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                 </div>
-                <input formControlName="nom" class="form-control" placeholder="nom" type="text">
+                <input formControlName="nom" class="form-control" type="text">
               </div>
                 <div style="margin-top: -10px;" *ngIf="submitted && signupForm.controls['nom'].errors" class="text-danger">
                 <div *ngIf="submitted && signupForm.controls['nom'].errors['required']">
@@ -55,7 +55,7 @@
             </div>
 
 
-            <div class="form-group">
+            <div class="form-group col-md-6">
               <label for="role">Role</label>
               <div [ngClass]="{'invalid':submitted && signupForm.controls['role'].errors}" class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
@@ -77,13 +77,13 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group col-md-6">
               <label for="email">email</label>
               <div [ngClass]="{'invalid':submitted && signupForm.controls['email'].errors}"  class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                 </div>
-                <input formControlName="email" class="form-control" placeholder="Email" type="email">
+                <input formControlName="email" class="form-control"  type="email">
               </div>
               <div style="margin-top: -10px;" *ngIf="submitted && signupForm.controls['email'].errors" class="text-danger">
                 <div *ngIf="submitted && signupForm.controls['email'].errors['required']">
@@ -95,37 +95,38 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group col-md-6">
               <label for="mdp">mot de passe</label>
               <div [ngClass]="{'invalid':submitted && signupForm.controls['password'].errors}"
                class="input-group input-group-alternative">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                 </div>
-                <input formControlName="password" class="form-control" placeholder="mot de passe" type="password">
+                <input formControlName="password" class="form-control"  type="password">
               </div>
               <div *ngIf="submitted && signupForm.controls['password'].errors" class="text-danger">
                 <div *ngIf="submitted && signupForm.controls['password'].errors['required']">
-                    Le Password est necessaire!
+                    Le Password est obligatoire!
                 </div>
             </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group col-md-6">
               <label for="mdp_c">confirmer le mot de passe</label>
-              <div [ngClass]="{'invalid':submitted && invalid }" class="input-group input-group-alternative">
+              <div  [ngClass]="{'invalid':submitted && invalid }" class="input-group input-group-alternative">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                 </div>
-                <input class="form-control" (keyup)="passeIdentique()" placeholder="mot de passe à nouveau" type="password">
+                <input class="form-control" formControlName="passwordConfirm" (keyup)="passeIdentique()"  type="password">
               </div>
-              <div *ngIf="submitted && invalid" class="text-danger">
-               les mot de passe ne correspond pas
-            </div>
-            </div>
 
-          <div class="text-center">
-              <button type="submit" class="btn btn-primary mt-4">S'inscrire</button>
+                <div *ngIf="submitted && invalid" class="text-danger">
+                les mot de passe ne correspond pas
+                </div >
+
+          </div>
+          <div class="col-md-6">
+              <button type="submit"  class="btn btn-default mt-4">S'inscrire</button>
           </div>
           </form>
         </div>
