@@ -10,7 +10,8 @@
       "prefix": "app",
       "schematics": {
         "@schematics/angular:component": {
-          "styleext": "scss"
+          "style": "scss"
+
         }
       },
       "architect": {
@@ -108,9 +109,12 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "argon-dashboard-angular-master/node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "argon-dashboard-angular-master/node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -159,10 +163,9 @@
       }
     }
   },
-  "defaultProject": "argon-dashboard-angular",
   "schematics": {
     "@schematics/angular:component": {
-      "styleext": "scss"
+      "style": "scss"
     }
   },
   "cli": {
