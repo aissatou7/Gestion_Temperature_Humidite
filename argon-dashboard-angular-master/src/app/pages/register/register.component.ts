@@ -11,6 +11,7 @@ export class RegisterComponent implements OnInit {
 signupForm: FormGroup;
 submitted=false;
 invalid = false;
+vide = false;
 
   constructor( public formBuilder: FormBuilder ) {
 
@@ -33,7 +34,7 @@ invalid = false;
   }
   passeIdentique(){
 
-    if (this.signupForm.value.password != this.signupForm.value.passwordConfirm ) {
+    if ( (this.signupForm.value.password != this.signupForm.value.passwordConfirm ) || (this.signupForm.value.passwordConfirm == '')) {
       this.invalid = true;
     }
     else{
@@ -43,9 +44,11 @@ invalid = false;
   }
   registerUser(){
     this.submitted = true;
+    this.passeIdentique();
     if(this.signupForm.invalid){
       return;
     }
-    this.submitted=false
+    this.submitted=false;
+
   }
 }
