@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+/* import { FormBuilder, FormGroup, Validators } from '@angular/forms'; */
 
 @Component({
   selector: 'app-user-profile',
@@ -7,9 +7,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
-profileForm!:FormGroup
+/* profileForm!:FormGroup
 submitted=false;
-invalid = false;
+invalid = false; */
   constructor() { }
 
   ngOnInit() {
